@@ -1,5 +1,6 @@
 import random
 
+
 class HighLow:
     """ROCK IT!!!"""
     def __init__(self):
@@ -34,5 +35,6 @@ class HighLow:
             print("Game over!")
         else:
             print("Congrats!")
+
 
 newGame = HighLow()
