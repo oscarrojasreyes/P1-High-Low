@@ -37,4 +37,5 @@ class HighLow:
             print("Congrats!")
 
 
-newGame = HighLow()
+if __name__ == '__main__':
+    newGame = HighLow()
