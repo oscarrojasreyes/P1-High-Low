@@ -1,6 +1,6 @@
 import random
 
-from breezypythongui import EasyFrame, EasyDialog
+from Module.breezypythongui import EasyFrame, EasyDialog
 
 
 class HighLow(EasyFrame):
@@ -42,11 +42,11 @@ class MainGameWindow(EasyFrame):
         while self.y == self.x:
             self.y = random.randint(1,14)
 
-        EasyFrame.__init__(self, f"Higher/Lower - Lives: {self.lives}")
+        EasyFrame.__init__(self, f"High/Low - Lives: {self.lives}")
         self.outputArea = self.addCanvas(width=300, height=200)
         self.outputArea.drawRectangle(5, 5, 125, 175)
         self.outputArea.drawRectangle(295, 5, 295-120, 175)
-        self.GuessText = self.outputArea.drawText("Is your card higher or lower than the hidden card?", x=150, y=195, font=('Arial', 8))
+        self.GuessText = self.outputArea.drawText("Is the hidden card higher or lower?", x=150, y=195, font=('Arial', 8))
         self.xText = self.outputArea.drawText(self.cardDisplay[self.x-1], 65, 95, font=('Arial', 80))
         self.yText = self.outputArea.drawText("?", 235, 95, font=('Arial',80))
         self.higherButton = self.addButton(text="Higher", row=1, column=0,
@@ -106,7 +106,7 @@ class GuessDialog(EasyDialog):
         EasyDialog.__init__(self, parent, "You've guessed...")
 
     def body(self, master):
-        if (self.guessedHigh and self.x > self.y) or (not self.guessedHigh and self.y > self.x):
+        if (self.guessedHigh and self.x < self.y) or (not self.guessedHigh and self.y < self.x):
             self.addLabel(master, f"Your Card: {self.cardDisplay[self.x-1]}\nHidden Card: {self.cardDisplay[self.y-1]}\nYou guessed correctly!",row=0, column=0)
             self.correct = True
         else:
