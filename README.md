@@ -1,5 +1,4 @@
 # High/Low Game
 
-Description: Guess if number is higher or lower to computers random choice. 
-If player guesses correctly, he wins.
-The player has 3 lives to guess.
+Description: A GUI-based game where the user has to guess whether or not the face down card is higher or lower than the card they are shown.
+Difficulty Option sets the number of lives the player has. Guess incorrectly, and a life is lost.
