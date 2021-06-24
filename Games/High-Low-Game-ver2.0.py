@@ -57,16 +57,27 @@ class MainGameWindow(EasyFrame):
     def guessHigh(self):
         guessDialog = GuessDialog(self, self.x, self.y, self.lives, True)
         if guessDialog.modified():
-            self.lives = self.lives -1
-        gameWindow = MainGameWindow(self.lives)
+            self.lives = self.lives - 1
+
+        if self.lives > -1:
+            gameWindow = MainGameWindow(self.lives)
+        else:
+            exit()
         EasyFrame.destroy(self)
 
     def guessLow(self):
         guessDialog = GuessDialog(self, self.x, self.y, self.lives, False)
         if guessDialog.modified():
-            self.lives = self.lives -1
-        gameWindow = MainGameWindow(self.lives)
+            self.lives = self.lives - 1
+
+        if self.lives > -1:
+            gameWindow = MainGameWindow(self.lives)
+        else:
+            exit()
         EasyFrame.destroy(self)
+
+    def ShitYourself(self):
+        exit()
 
 class DifficultyDialog(EasyDialog):
     def __init__(self, parent, difficulty):
